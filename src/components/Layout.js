@@ -44,14 +44,10 @@ const Layout = () => {
   };
 
   const handleCheckTag = (e, selectedTag) => {
-    if (!(selectedTag.id === 0)) {
-      dispatch(filterBySelectedTags(selectedTag));
-    }
+    dispatch(filterBySelectedTags(selectedTag));
   };
   const handleCheckCompany = (e, selectedCompany) => {
-    if (!(selectedCompany.id === 0)) {
-      dispatch(filterBySelectedComponies(selectedCompany));
-    }
+    dispatch(filterBySelectedComponies(selectedCompany));
   };
 
   const filteredTags = tags.filter((item) => {

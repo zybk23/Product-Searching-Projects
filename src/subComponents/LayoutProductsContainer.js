@@ -17,6 +17,10 @@ const LayoutProducts = () => {
     (state) => state.reducer.isProductLoading
   );
 
+  const tagsAllExist = selectedTags.find((item) => item.id === 0);
+  const companiesAllExist = selectedCompanies.find((item) => item.id === 0);
+  console.log("existexist", tagsAllExist);
+
   const tagNames = selectedTags.map((x) => {
     return x.name;
   });
@@ -40,7 +44,7 @@ const LayoutProducts = () => {
     filteredProducts = filteredProducts.sort((a, b) => b.added - a.added);
   }
 
-  if (selectedTags.length > 1) {
+  if (tagsAllExist ? selectedTags.length > 1 : selectedTags.length > 0) {
     filteredProducts = filteredProducts.filter((x) => {
       return x.tags.some((a) => {
         return tagNames.includes(a);
@@ -48,12 +52,23 @@ const LayoutProducts = () => {
     });
   }
 
-  if (selectedCompanies.length > 1) {
+  if (
+    companiesAllExist
+      ? selectedCompanies.length > 1
+      : selectedCompanies.length > 0
+  ) {
     filteredProducts = filteredProducts.filter((el) => {
       return selectedCompanies.find((element) => {
         return element.name == el.manufacturer;
       });
     });
+  }
+
+  if (tagsAllExist) {
+    filteredProducts = [...filteredProducts];
+  }
+  if (companiesAllExist) {
+    filteredProducts = [...filteredProducts];
   }
 
   const [currentPage, setCurrentPage] = useState(1);
