@@ -35,8 +35,28 @@ const ProductCardContainer = styled.div`
   height: 225px;
   margin-right: 24px;
   margin-bottom: 12px;
-  &:nth-of-type(4n) {
+  &:nth-of-type(6n) {
     margin-right: 0;
+  }
+  @media (max-width: 1748px) {
+    &:nth-of-type(6n) {
+      margin-right: 24px;
+    }
+    &:nth-of-type(5n) {
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 1648px) {
+    max-width: 708px;
+    &:nth-of-type(6n) {
+      margin-right: 24px;
+    }
+    &:nth-of-type(5n) {
+      margin-right: 24px;
+    }
+    &:nth-of-type(4n) {
+      margin-right: 0;
+    }
   }
   @media (max-width: 1444px) {
     &:nth-of-type(4n) {
@@ -44,6 +64,9 @@ const ProductCardContainer = styled.div`
     }
     &:nth-of-type(5n) {
       margin-right: 0;
+    }
+    &:nth-of-type(6n) {
+      margin-right: 24px;
     }
   }
   @media (max-width: 1308px) {
@@ -53,6 +76,9 @@ const ProductCardContainer = styled.div`
       margin-right: 0;
     }
     &:nth-of-type(5n) {
+      margin-right: 1%;
+    }
+    &:nth-of-type(6n) {
       margin-right: 1%;
     }
   }
@@ -72,6 +98,9 @@ const ProductCardContainer = styled.div`
       margin-right: 1%;
     }
     &:nth-of-type(5n) {
+      margin-right: 1%;
+    }
+    &:nth-of-type(6n) {
       margin-right: 1%;
     }
   }

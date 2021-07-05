@@ -28,8 +28,6 @@ const Layout = () => {
   const basketProducts = useSelector((state) => state.reducer.basketProducts);
   const isShowBasket = useSelector((state) => state.reducer.isShowBasket);
 
-  console.log("isShowBasket", isShowBasket);
-
   const [tagsField, setTagsField] = useState("");
   const [tagIds, setTagIds] = useState([]);
 

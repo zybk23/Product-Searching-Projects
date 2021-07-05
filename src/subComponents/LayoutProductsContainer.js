@@ -19,7 +19,6 @@ const LayoutProducts = () => {
 
   const tagsAllExist = selectedTags.find((item) => item.id === 0);
   const companiesAllExist = selectedCompanies.find((item) => item.id === 0);
-  console.log("existexist", tagsAllExist);
 
   const tagNames = selectedTags.map((x) => {
     return x.name;
@@ -62,13 +61,6 @@ const LayoutProducts = () => {
         return element.name == el.manufacturer;
       });
     });
-  }
-
-  if (tagsAllExist) {
-    filteredProducts = [...filteredProducts];
-  }
-  if (companiesAllExist) {
-    filteredProducts = [...filteredProducts];
   }
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -254,10 +246,16 @@ const LayoutProducts = () => {
 const LayoutProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 608px;
+  max-width: 908px;
   margin-right: 16px;
   padding: 0;
   margin-top: 0;
+  @media (max-width: 1748px) {
+    max-width: 808px;
+  }
+  @media (max-width: 1648px) {
+    max-width: 608px;
+  }
   @media (max-width: 1444px) {
     max-width: 755px;
     margin-right: 0;

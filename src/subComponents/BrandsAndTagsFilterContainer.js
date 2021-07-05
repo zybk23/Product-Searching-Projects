@@ -47,10 +47,14 @@ const BrandsAndTagsFilterContainer = ({
                   onChange={(e) => onChangeCheckbox(e, item)}
                   type="checkbox"
                 />
-                <StyledFilterText>{item.name.slice(0, 26)}</StyledFilterText>
-                <StyledFilterSpan>
-                  {"(" + item.count + ")"}
-                </StyledFilterSpan>{" "}
+                <StyledFilterText>
+                  {item.name
+                    .slice(0, 26)
+                    .replace("-", " ")
+                    .replace("-", " ")
+                    .replace("-", " ")}
+                </StyledFilterText>
+                <StyledFilterSpan>{"(" + item.count + ")"}</StyledFilterSpan>{" "}
               </StyledFilterItems>
             ))}
           </StyledFilterItemsContainer>

@@ -46,6 +46,11 @@ export default (state = initialState, action) => {
       };
     case FILTER_BY_SELECTED_TAGS:
       let modifiedSelectedTags = [...state.selectedTags];
+      if (action.payload.id === 0) {
+        modifiedSelectedTags = modifiedSelectedTags.filter(
+          (item) => item.id === 0
+        );
+      }
       const exist = modifiedSelectedTags.find(
         (item) => item.id == action.payload.id
       );
@@ -55,6 +60,11 @@ export default (state = initialState, action) => {
         );
       } else {
         modifiedSelectedTags.push(action.payload);
+        if (action.payload.id !== 0) {
+          modifiedSelectedTags = modifiedSelectedTags.filter(
+            (item) => item.id !== 0
+          );
+        }
       }
       return {
         ...state,
@@ -77,6 +87,13 @@ export default (state = initialState, action) => {
 
     case FILTER_BY_SELECTED_COMPANIES:
       let modifiedSelectedCompanies = [...state.selectedCompanies];
+
+      if (action.payload.id === 0) {
+        modifiedSelectedCompanies = modifiedSelectedCompanies.filter(
+          (item) => item.id === 0
+        );
+      }
+
       const existCompany = modifiedSelectedCompanies.find(
         (item) => item.id == action.payload.id
       );
@@ -86,6 +103,11 @@ export default (state = initialState, action) => {
         );
       } else {
         modifiedSelectedCompanies.push(action.payload);
+        if (action.payload.id !== 0) {
+          modifiedSelectedCompanies = modifiedSelectedCompanies.filter(
+            (item) => item.id !== 0
+          );
+        }
       }
       return {
         ...state,
